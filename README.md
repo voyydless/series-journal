@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Series Journal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de gerenciamento de séries assistidas desenvolvido com React para a disciplina de Desenvolvimento de Sistemas Frontend da PUCRS. A aplicação permite o cadastro, listagem, edição estática e exclusão de séries de forma simples e intuitiva.
 
-## Available Scripts
+## Como executar o projeto
 
-In the project directory, you can run:
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
-### `npm start`
+1. Clone o repositório ou baixe o código-fonte.
+2. Abra o terminal na pasta raiz do projeto.
+3. Instale as dependências executando:
+   ```bash
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+5. A aplicação abrirá automaticamente no seu navegador padrão no endereço `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Páginas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Página Inicial:**
+  ![Página Inicial](src\assets\about.png)
+  `Home`: Apresenta as boas-vindas ao sistema.
 
-### `npm test`
+* **Formulário de Cadastro:**
+  ![Cadastro de Séries](src\assets\register.png)
+  `RegisterSeries`: Envolve o `SerieForm` com o layout centralizado.
+* **Lista de Séries (com edição/exclusão):**
+  ![Lista de Séries](src\assets\list.png)
+  `ListSeries`: Envolve o `SerieList` e implementa uma barra de busca dinâmica por títulos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Página Sobre:**
+    ![Página Sobre](src\assets\about.png)
+    `About`: Página informativa sobre o propósito do projeto.
 
-### `npm run build`
+## Descrição dos Componentes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **`NavBar`**: Componente de navegação fixo no topo. Utiliza a biblioteca `react-router-dom` (`<Link>`) para permitir a transição suave entre as páginas sem recarregar o navegador.
+* **`SerieForm`**: Responsável pelo formulário de adição de novas séries. Ele possui:
+  * Gerenciamento de estado interno das entradas.
+  * Validação básica (impede submissões vazias ou com número de temporadas negativo/zero).
+  * Renderização de feedbacks visuais (mensagens de erro em vermelho e sucesso em verde) estáticos, sem quebrar o layout da página.
+* **`SerieList`**: Componente que recebe a lista de séries via *props* e as renderiza. Implementa botões para edição e exclusão. A edição foi construída de forma *inline*, transformando o texto em inputs para uma experiência mais fluida.

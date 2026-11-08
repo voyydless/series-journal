@@ -11,7 +11,7 @@ function HomePage() {
       textAlign: 'center'
     }}>
       <h1>Página Inicial</h1>
-      <h2>Bem-vindo ao Serie Journal!</h2>
+      <h2>Bem-vindo ao Series Journal!</h2>
       <p>Gerencie séries assistidas de uma forma fácil e intuitiva.</p>
     </div>
   );
